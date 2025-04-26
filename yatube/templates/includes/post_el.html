@@ -1,0 +1,19 @@
+<article>
+  <ul>
+    <li>
+      Автор: {{ posts.author.get_full_name }}
+    </li>
+    <li>
+      Дата публикации: {{ posts.pub_date|date:"d E Y" }}
+    </li>
+  </ul>
+  <p>
+    {{ posts.text }}
+  </p>
+</article>
+
+{% if posts.group %}
+  <a href="{% url 'posts: group_list' %}">все записи группы</a>
+{% endif %}
+
+{% if not forloop.last %}<hr>{% endif %}
