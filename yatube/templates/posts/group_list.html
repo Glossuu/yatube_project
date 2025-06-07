@@ -4,12 +4,14 @@
 {% block title %}
   Записи сообщества
 {% endblock %}
-{% block posts %}
+{% block content %}
   <h1> {{ group.title }} </h1>
   <p>
     {{ group.description }}
   </p>
-  {% for post in posts %}
+  {% for post in page_obj %}
     {% include 'includes/post_el.html' %}
   {% endfor %}
+
+  {% include 'posts/includes/paginator.html' %}
 {% endblock %} 

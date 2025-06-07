@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 
@@ -19,11 +20,14 @@ class Post(models.Model):
         'Group', on_delete=models.CASCADE, blank=True, null=True
     )
 
+    def __str__(self):
+        return self.text
+
 
 class Group(models.Model):
     title = models.TextField()
     slug = models.SlugField(default='Пусто')
     description = models.TextField(default='Пусто')
 
-    def str(self):
+    def __str__(self):
         return self.title

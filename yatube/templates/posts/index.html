@@ -4,9 +4,11 @@
 {% block title %}
   Последние обновления на сайте
 {% endblock %}
-{% block posts %}
+{% block content %}
   <h1>Все посты</h1>
-  {% for post in posts %}
+  {% for post in page_obj %}
     {% include 'includes/post_el.html' %}
   {% endfor %}
+
+  {% include 'posts/includes/paginator.html' %}
 {% endblock %}
